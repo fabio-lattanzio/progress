@@ -1,0 +1,827 @@
+nderline/* Reset globale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #444;
+    color: white;
+}
+
+/* Contenitore principale */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* Header e Footer */
+.header, .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #333;
+}
+
+.header div, .footer div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header div:hover {
+    color: orange;
+}
+
+.header img, .footer a img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header a {
+    color: orange;
+    text-decoration: none;
+}
+
+.footer a img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+/* Sezione principale */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.main-content .left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-content .left img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.main-content .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.main-content .right p {
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: orange;
+}
+
+/* Timeline */
+.timeline {
+    margin: 50px auto; /* Centra verticalmente e orizzontalmente */
+    text-align: center;
+    position: relative;
+    width: 80%; /* Più compatto */
+    max-width: 900px; /* Larghezza massima */
+}
+
+.timeline .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: orange;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: orange;
+    transform: translateX(-50%); /* Centra la linea orizzontalmente */
+}
+
+.timeline-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Maggiore spazio tra gli elementi */
+}
+
+.timeline-item {
+    position: relative;
+    width: 45%; /* Rende gli elementi più stretti */
+    padding: 15px;
+    background: #f4f4f4;
+    color: #333; /* Testo più leggibile */
+    border: 3px solid orange;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Testo allineato a sinistra */
+}
+
+.timeline-item.left {
+    align-self: flex-start;
+    transform: translateX(-10%); /* Posiziona leggermente a sinistra */
+}
+
+.timeline-item.right {
+    align-self: flex-end;
+    transform: translateX(10%); /* Posiziona leggermente a destra */
+}
+
+.timeline-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Media Query per schermi più piccoli */
+@media (max-width: 768px) {
+    .timeline {
+        width: 90%; /* Più spazio sui dispositivi piccoli */
+    }
+
+    .timeline::before {
+        left: 50%; /* Centra la linea orizzontale */
+        width: 2px;
+        transform: translateX(-50%); /* Mantieni la linea centrata */
+    }
+
+    .timeline-item {
+        width: 80%; /* Aumenta la larghezza degli elementi */
+        text-align: center; /* Centra il testo */
+        transform: translateX(0); /* Elimina l'allineamento a sinistra/destra */
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        align-self: center;
+    }
+}
+
+/* Carosello */
+.carousel {
+    flex: 1;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.carousel-item {
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header, .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header div, .footer div {
+        flex: none;
+        margin: 5px 0;
+    }
+
+    .main-content {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .main-content .left img {
+        width: 70%;
+    }
+
+    .main-content .right {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+
+    .carousel-controls button {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .main-content .left img {
+        width: 80%;
+    }
+
+    .main-content .right p {
+        font-size: 1em;
+    }
+
+    .title {
+        font-size: 1.3em;
+    }
+}
+
+/* Sezione contatti */
+.contatti-section {
+    padding: 30px;
+    background-color: #333;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.contatti-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: orange;
+}
+
+.contatti-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.contatti-section input,
+.contatti-section textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.contatti-section button {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contatti-section button:hover {
+    background-color: #45a049;
+}
+
+.contatti-section input:focus,
+.contatti-section textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+/* Contenitore delle tabelle */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Wrapper per ogni tabella */
+.table-wrapper {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulsante per il collapse */
+.collapse-btn {
+    background-color: #444;
+    color: orange;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.collapse-btn:hover {
+    background-color: #555;
+}
+
+/* Tabella nascosta di default */
+.collapsed-table {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.collapsed-table td {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px;
+    border: 2px solid orange;
+    text-align: center;
+}
+
+/* Mostra la tabella quando viene espansa */
+.collapsed-table.expanded {
+    display: table;
+}
+
+/* Reset globale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #444;
+    color: white;
+}
+
+/* Contenitore principale */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* Header e Footer */
+.header, .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #333;
+}
+
+.header div, .footer div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header div:hover {
+    color: orange;
+}
+
+.header img, .footer a img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header a {
+    color: orange;
+    text-decoration: none;
+}
+
+.footer a img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+/* Titolo sezione "I MIEI LAVORI" */
+.section-title {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.section-title h1 {
+    color: orange;
+    font-size: 2em;
+}
+
+/* Sezione principale */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+/* Carosello, altre sezioni e media query sono omesse per chiarezza */
+
+/* Contenitore delle tabelle */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Wrapper per ogni tabella */
+.table-wrapper {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulsante per il collapse */
+.collapse-btn {
+    background-color: #444;
+    color: orange;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.collapse-btn:hover {
+    background-color: #555;
+}
+
+/* Tabella nascosta di default */
+.collapsed-table {
+    display: none;
+    width: 80%; /* Larghezza sottile */
+    margin-top: 10px;
+    border-collapse: collapse;
+    margin-left: auto;  /* Centra la tabella orizzontalmente */
+    margin-right: auto; /* Centra la tabella orizzontalmente */
+    height: 80px;  /* Altezza più grande */
+}
+
+.collapsed-table td {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px; /* Altezza maggiore delle celle */
+    border: 2px solid orange;
+    text-align: center;
+}
+
+/* Mostra la tabella quando viene espansa */
+.collapsed-table.expanded {
+    display: table;
+}
+
+/* Reset globale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #444;
+    color: white;
+    display: flex;
+    flex-direction: column; /* Per fare in modo che l'altezza del contenitore principale occupi tutta la pagina */
+}
+
+/* Contenitore principale */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1; /* Occupa tutto lo spazio disponibile */
+}
+
+/* Header e Footer */
+.header, .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #333;
+}
+
+.header div, .footer div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header div:hover {
+    color: orange;
+}
+
+.header img, .footer a img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header a {
+    color: orange;
+    text-decoration: none;
+}
+
+.footer a img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+/* Sezione principale */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+/* Contenitore delle tabelle */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    flex: 1; /* Occupare tutto lo spazio disponibile */
+}
+
+/* Wrapper per ogni tabella */
+.table-wrapper {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulsante per il collapse */
+.collapse-btn {
+    background-color: #444;
+    color: orange;
+    padding: 10px 0; /* Aggiustato per una maggiore altezza */
+    width: 100%; /* Prende il 100% della larghezza */
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em; /* Aumentato per una visibilità migliore */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Ombra centrata */
+    margin: 10px 0; /* Distanza tra i pulsanti */
+    height: 12vh; /* Aumentato per renderli più corti in altezza */
+}
+
+/* Tabella nascosta di default */
+.collapsed-table {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.collapsed-table td {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px;
+    border: 2px solid orange;
+    text-align: center;
+}
+
+/* Mostra la tabella quando viene espansa */
+.collapsed-table.expanded {
+    display: table;
+}
+
+/* Footer */
+.footer {
+    margin-top: auto; /* Aggiungi questa proprietà per spingere il footer verso il fondo della pagina */
+}
+
+
+/* Wrapper per ogni tabella */
+.table-wrapper {
+    background-color: #333;
+    padding: 15px; /* Aumenta il padding per una maggiore altezza */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; /* Aggiungi margine inferiore per aumentare la distanza tra i collapse */
+}
+
+/* Aggiungi margine superiore al secondo collapse */
+.table-wrapper.second-collapse {
+    margin-top: 50px; /* Modifica questo valore per regolare la distanza */
+}
+
+/* Pulsante per il collapse */
+.collapse-btn {
+    background-color: #444;
+    color: orange;
+    padding: 15px; /* Aumenta la padding per una maggiore altezza */
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.collapse-btn:hover {
+    background-color: #555;
+}
+
+/* Tabella nascosta di default */
+.collapsed-table {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.collapsed-table td {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 15px; /* Maggiore spazio tra le celle */
+    border: 2px solid orange;
+    text-align: center;
+}
+
+/* Mostra la tabella quando viene espansa */
+.collapsed-table.expanded {
+    display: table;
+}
+
+
+
+
+/* Aggiungi transizione e hover alle icone */
+.header img, .footer a img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transizione fluida */
+}
+
+.header img:hover, .footer a img:hover {
+    transform: scale(1.1); /* Ingrandisce leggermente l'icona */
+}
+
+/* Stile specifico per i loghi di Facebook e Instagram */
+.footer a img {
+    width: 55px; /* Riduce la dimensione originale */
+    height: 55px; /* Mantiene proporzioni coerenti */
+    margin: 0 10px;
+    transition: transform 0.3s ease; /* Aggiunge un'animazione fluida */
+}
+
+/* Mantiene l'effetto hover */
+.footer a img:hover {
+    transform: scale(1.1); /* Effetto di ingrandimento al passaggio del mouse */
+}
+
+
+
+
+/* Animazione fade-in e slide */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.collapsed-table {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    opacity: 0; /* Inizialmente invisibile */
+    transform: translateY(-20px); /* Posizionamento iniziale sopra */
+    animation: fadeInSlide 0.5s ease forwards; /* Combina fade-in e slide */
+}
+
+.collapsed-table.expanded {
+    display: table;
+}
+
+
+
+.collapse-btn {
+    background-color: #444;
+    color: orange;
+    padding: 15px; /* Aumenta il padding per una maggiore altezza */
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 0 5px 2px orange; /* Bordo neon iniziale */
+}
+
+
+
+/* Aggiungi un bordo arancione al passaggio del mouse sulle immagini (escludendo il carosello) */
+.header img:hover, 
+.footer a img:hover {
+    box-shadow: none; /* Rimuove l'ombra */
+    border: 3px solid orange; /* Aggiunge un bordo arancione */
+    transform: scale(1.1); /* Opzionale: per ingrandire leggermente l'immagine */
+}
+
+
+/* Effetto neon molto delicato per i testi quando si passa sopra con il mouse */
+.header div:hover, .footer div:hover {
+    color: orange; /* Colore del testo */
+    text-decoration: none;
+    text-shadow: 0 0 1px orange, 0 0 1px orange, 0 0 1px orange; /* Ombra più leggera */
+}
+
+

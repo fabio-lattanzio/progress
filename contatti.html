@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO FABIO LATTANZIO</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/java.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <a href="./home.html">
+                    <img src="./img/logogiusto.jpg" alt="Logo">
+                </a>
+            </div>            
+            <div><a href="./chi_sono.html">CHI SONO</a></div>
+            <div><a href="./i_miei_lavori.html">I MIEI LAVORI</a></div>
+            <div><a href="./contatti.html">CONTATTI</a></div>
+        </div>
+
+        <div class="contatti-section">
+            <h2>CONTACT ME</h2>
+            <form action="mailto:tuoindirizzo@email.com" method="POST" enctype="text/plain">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+
+                <label for="cognome">Cognome</label>
+                <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
+
+                <label for="telefono">Telefono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Inserisci il tuo numero di telefono" required>
+
+                <label for="messaggio">Messaggio</label>
+                <textarea id="messaggio" name="messaggio" rows="4" placeholder="Scrivi il tuo messaggio" required></textarea>
+
+                <button type="submit">INVIA</button>
+            </form>
+        </div>
+
+        <div class="footer">
+            <div>Realizzato da Fabio Lattanzio</div>
+            <div>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="./img/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="./img/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
