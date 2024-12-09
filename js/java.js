@@ -59,4 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    document.getElementById("submit",(e)=>{
+        e.preventDefault()
+        document.getElementById("form").submit()
+    
+    })
 });
